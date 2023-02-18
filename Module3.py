@@ -1,41 +1,67 @@
 from Module1 import *
 from Module2 import *
-
-def current_account_details():
-    global current_account_data
-    if(len(current_account_data)!=0):
+common_number=0
+def user_account_details():
+    global user_data
+    if(len(user_data)!=0):
         print("  ", format("Account Holder Name   ", "<25s"), format("Account Holder CNIC   ", "<25s"),
-              format("Account Balance   ", "<25s"), format("Account Holder Address   ", "<25s"))
+              format("Account Holder Contact   ", "<25s"), format("Account Holder Address   ", "<25s"))
         print(" _____________________________________________________________________________________________________")
-        for i in range(0, len(current_account_data), 4):
-            print("  ", format(current_account_data[i], "<25s"), format(current_account_data[i + 1], "<25s")
-                  , format(current_account_data[i + 2], "<25s"), format(current_account_data[i + 3], "<25s"))
+        for i in range(0, len(user_data), 4):
+            print("  ", format(user_data[i], "<25s"), format(user_data[i + 1], "<25s")
+                  , format(user_data[i + 2], "<25s"), format(user_data[i + 3], "<25s"))
     else:
-        print("No Account Created!")
-def saving_account_details():
-    global saving_account_data
-    if (len(saving_account_data)!=0):
-        print("  ", format("Account Holder Name   ", "<25s"), format("Account Holder CNIC   ", "<25s"),
-              format("Account Balance   ", "<25s"), format("Account Holder Address   ", "<25s"))
+        print("  No Account Created!")
+def employe_details():
+    global employe_data
+    if (len(employe_data)!=0):
+        print("  ", format("Employe Name   ", "<25s"), format("Employe CNIC   ", "<25s"),
+              format("Employe Contact  ", "<25s"), format("Employe Address   ", "<25s"))
         print(" ______________________________________________________________________________________________________")
-        for i in range(0, len(saving_account_data), 4):
-            print("  ", format(saving_account_data[i], "<25s"), format(saving_account_data[i + 1], "<25s")
-                  , format(saving_account_data[i + 2], "<25s"), format(saving_account_data[i + 3], "<25s"))
+        for i in range(0, len(employe_data), 4):
+            print("  ", format(employe_data[i], "<25s"), format(employe_data[i + 1], "<25s")
+                  , format(employe_data[i + 2], "<25s"), format(employe_data[i + 3], "<25s"))
     else:
-        print("No Account Created!")
+        print("  No Account Created!")
     print()
 
+def common():
+    global common_number
+    print("  ", format("Employe Name   ", "<25s"), format("Employe CNIC   ", "<25s"),
+          format("Employee Contact   ", "<25s"), format("Employe Address   ", "<25s"))
+    print(" ______________________________________________________________________________________________________")
+    for i in range(1, len(user_data), 4):
+            for j in range(1, len(employe_data), 4):
+                if (user_data[i]==employe_data[j]):
+                        print("  ", format(employe_data[j-1], "<25s"), format(employe_data[j], "<25s")
+                              , format(employe_data[j + 1], "<25s"), format(employe_data[j + 2], "<25s"))
+                        common_number += 1
+    if common_number!=0:
+        print("\n")
+        print(" ______________________________________________________________________________________________________")
+        print("\n\n")
+    elif common_number==0:
+        print("  No Employee has Account in the Bank!")
+        print("\n")
+        print(" ______________________________________________________________________________________________________")
+        print("\n\n")
+
+
 def details():
-    print("Total Accounts : ",((len(current_account_data)+len(saving_account_data)))//4)
-    print("Current Accounts : ",(len(current_account_data))//4)
-    print("Saving Accounts : ",(len(saving_account_data))//4)
+    print("Total Users : ", (len(user_data)) // 4)
+    print("Total Employees : ", (len(employe_data)) // 4)
     print("\n")
     print(" ------------------------------------------------------------------------------------------------------")
-    print("                                               CURRENT ACCOUNT                                    ")
+    print("                                               User Managment                                    ")
     print(" -----------------------------------------------------------------------------------------------------")
-    current_account_details()
+    user_account_details()
     print("\n\n")
     print(" ------------------------------------------------------------------------------------------------------")
-    print("                                              SAVING ACCOUNT                                      ")
+    print("                                              Employee Managent                                      ")
     print(" ------------------------------------------------------------------------------------------------------")
-    saving_account_details()
+    employe_details()
+    print("\n")
+    print(" ------------------------------------------------------------------------------------------------------")
+    print("                                     Employees that have Account in the Bank                           ")
+    print(" ------------------------------------------------------------------------------------------------------")
+    common()
