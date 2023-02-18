@@ -1,31 +1,33 @@
 from Module3 import *
 from Module1 import *
 from Module2 import *
+
 def main():
+
     confirm='y'
     while confirm=='y':
         print("\n\n")
         print("-------------- Welcome --------------")
         print("-------------Main Menu-------------")
-        print("1.Current Accounts\n2.Saving Accounts\n3.Combined Account Details")
+        print("1.User Managment\n2.Employee Managment\n3.Employes Accounts in Bank")
         choice=eval(input("Enter Your Choice : "))
         print("\n\n")
         if choice==1:
             while True:
-                print("-------------- Current Account --------------")
+                print("-------------- User Managment --------------")
                 print("What do you want to do :\n1.Create an Account\n2.View Account "
                       "Details\n3.Search\n4.Update Account\n5.Exit")
                 choice = eval(input("Enter Your Choice : "))
                 print()
                 if choice <= 5 and choice != 0:
                     if choice == 1:
-                        create_acount_current()
+                        create_user()
                     elif choice == 2:
-                        view_current()
+                        view_user()
                     elif choice == 3:
-                        search_current()
+                        search_user()
                     elif choice == 4:
-                        update_curent()
+                        update_user()
                     else:
                         break
                 else:
@@ -33,20 +35,20 @@ def main():
         elif choice==2:
 
             while True:
-                print("-------------- Saving Account --------------")
-                print("What do you want to do :\n1.Create an Account\n2.View Account "
-                      "Details\n3.Search\n4.Update Account\n5.Exit")
+                print("-------------- Employee Managment --------------")
+                print("What do you want to do :\n1.Add an employee\n2.View Employee Details"
+                      "\n3.Search Employee \n4.Update Employee Details\n5.Exit")
                 choice = eval(input("Enter Your Choice : "))
                 print()
                 if choice <= 5 and choice != 0:
                     if choice == 1:
-                        create_acount_saving()
+                        create_employe()
                     elif choice == 2:
-                        view_saving()
+                        view_employe()
                     elif choice == 3:
-                        search_saving()
+                        search_employe()
                     elif choice == 4:
-                        update_saving()
+                        update_employe()
                     else:
                         break
                 else:
@@ -56,8 +58,11 @@ def main():
         else:
             print("Enter Valid Choice!")
 
-        confirm = input("Do you want to Continue ? (y/n) : ")
+        confirm = input("Press y to use again and any other key to exit : ")
+        print()
 
 print("______________________________________________________________________________________________")
+
+
 
 main()
